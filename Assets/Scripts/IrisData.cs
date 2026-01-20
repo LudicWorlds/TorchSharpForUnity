@@ -24,7 +24,7 @@ public struct IrisData
 
     public static int GetSpeciesId(string species)
     {
-        switch (species.ToLower())
+        switch (species.Trim().ToLower())
         {
             case "iris-setosa":
                 return 0;
