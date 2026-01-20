@@ -28,6 +28,17 @@ The TorchSharp library and its dependencies retain their original licenses.
 See [THIRD-PARTY-NOTICES-TORCHSHARP](THIRD-PARTY-NOTICES-TORCHSHARP.txt) for complete attribution and license information.
 
 
+## Downloading This Project
+
+**Clone with Git LFS**
+1. Install Git LFS: https://git-lfs.github.com/
+2. Clone the repository:
+```bash
+git lfs install
+git clone https://github.com/LudicWorlds/TorchSharpForUnity.git
+```
+
+
 ## What's Included
 
 This project contains:
