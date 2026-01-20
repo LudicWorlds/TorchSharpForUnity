@@ -40,3 +40,4 @@
 *.dylib binary
 *.apk binary
 *.unitypackage binary
+**/*.dll filter=lfs diff=lfs merge=lfs -text
