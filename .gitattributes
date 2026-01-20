@@ -1,0 +1,42 @@
+# Auto detect text files and normalize line endings to LF in repository
+* text=auto
+# Unity files
+*.cs text diff=csharp
+*.shader text
+*.cginc text
+*.hlsl text
+*.mat text
+*.anim text
+*.unity text
+*.prefab text
+*.asset text
+*.meta text
+# Documentation
+*.md text
+*.txt text
+# Scripts
+*.sh text eol=lf
+*.bash text eol=lf
+# Windows scripts
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+# Arduino/C++ files
+*.ino text
+*.cpp text
+*.h text
+# Binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.mp3 binary
+*.wav binary
+*.ogg binary
+*.fbx binary
+*.onnx filter=lfs diff=lfs merge=lfs -text
+*.dll binary
+*.so binary
+*.dylib binary
+*.apk binary
+*.unitypackage binary

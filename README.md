@@ -25,7 +25,7 @@ You are free to use, modify, and distribute this Unity integration without any a
 The TorchSharp library and its dependencies retain their original licenses.
 
 **Third-Party Components:** TorchSharp incorporates PyTorch, Caffe2, and other third-party software.
-See [THIRD-PARTY-NOTICES-TORCHSHARP.TXT](THIRD-PARTY-NOTICES-TORCHSHARP.TXT) for complete attribution and license information.
+See [THIRD-PARTY-NOTICES-TORCHSHARP](THIRD-PARTY-NOTICES-TORCHSHARP.txt) for complete attribution and license information.
 
 
 ## What's Included
@@ -56,7 +56,7 @@ For package distribution, a `TorchSharpForUnity.unitypackage` can be exported us
 
 This interactive demo trains a neural network to classify Iris flowers using the classic Iris dataset.
 
-*Adapted from [Pytorch Iris Classification Tutorial](https://youtu.be/JHWqWIoac2I) by John Elder (Codemy.com), and converted to TorchSharp.*
+*The demo is adapted from [Pytorch Iris Classification Tutorial](https://youtu.be/JHWqWIoac2I) by John Elder (Codemy.com), and converted to TorchSharp.*
 
 **How to use:**
 1. Enter Play Mode
