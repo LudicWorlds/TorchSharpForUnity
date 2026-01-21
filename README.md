@@ -30,7 +30,12 @@ See [THIRD-PARTY-NOTICES-TORCHSHARP](THIRD-PARTY-NOTICES-TORCHSHARP.txt) for com
 
 ## Downloading This Project
 
-**Clone with Git LFS**
+**Option A: Download Release (Easiest)**
+
+Download the complete project ZIP from the [Releases page](https://github.com/LudicWorlds/TorchSharpForUnity/releases) - no Git LFS required.
+
+
+**Option B: Clone with Git LFS**
 1. Install Git LFS: https://git-lfs.github.com/
 2. Clone the repository:
 ```bash
@@ -59,7 +64,7 @@ For package distribution, a `TorchSharpForUnity.unitypackage` can be exported us
 3. Open the scene: **Assets/Scenes/IrisTrainingScene.unity**
 4. Enter Play Mode
 
-## Demo Scenes
+## Demo Scene
 
 ### Iris Training Demo (Primary Example)
 

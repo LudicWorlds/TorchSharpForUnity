@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System;
 using TorchSharp;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using System.Linq;
 using static TorchSharp.torch.optim;
 using TorchSharp.Modules;
@@ -51,10 +52,8 @@ public class IrisTraining : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Check if the space key is pressed down
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Keyboard.current.spaceKey.wasPressedThisFrame)
         {
-            // Do something when the space key is pressed
             ExecuteNextStage();
         }
     }
@@ -85,8 +84,6 @@ public class IrisTraining : MonoBehaviour
 
         _stage++;
     }
-
-
 
     private void PrintTorchSharpCaps()
     {
@@ -386,5 +383,4 @@ public class IrisTraining : MonoBehaviour
 
         return str;
     }
-
 }
