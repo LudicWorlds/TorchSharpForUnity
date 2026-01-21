@@ -43,6 +43,10 @@ git lfs install
 git clone https://github.com/LudicWorlds/TorchSharpForUnity.git
 ```
 
+**Option C: Unity Package Only**
+
+If you just want to add TorchSharp to an existing Unity project, download `TorchSharpForUnity.unitypackage` from the [latest Release](https://github.com/LudicWorlds/TorchSharpForUnity/releases/latest).
+
 
 ## What's Included
 
