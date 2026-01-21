@@ -1,4 +1,4 @@
-# TorchSharp For Unity - V0.3.0
+# TorchSharpForUnity.unitypackage - v0.3.0
 
 This 'TorchSharpForUnity.unitypackage' contains a collection of DLLs, obtained via nuget.org, that install TorchSharp within your Unity Project. The required DLLs are imported into the 'Assets/Plugins' folder of your project. This includes TorchSharp version 0.102.6 and the DLLs on which it depends.
 
