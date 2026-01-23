@@ -1,6 +1,6 @@
 # TorchSharpForUnity.unitypackage
 
-This 'TorchSharpForUnity.unitypackage' contains a collection of DLLs, obtained via nuget.org, that install TorchSharp within your Unity Project. The required DLLs are imported into the 'Assets/Plugins' folder of your project. This includes TorchSharp version 0.102.6 and the DLLs on which it depends.
+This 'TorchSharpForUnity.unitypackage' contains a collection of DLLs, obtained via nuget.org, that install TorchSharp within your Unity Project. The required DLLs are imported into the 'Assets/Plugins' folder of your project. This includes TorchSharp version 0.105.2 and the DLLs on which it depends.
 
 This TorchSharp package is Windows and CPU only (no GPU/Cuda support). It has been tested in Unity 6000.3.5f1.
 
@@ -10,8 +10,14 @@ For examples and tutorials, visit the [TorchSharp Examples repository](https://g
 
 ## License
 
-**Unity Integration:** Released under [CC0 1.0 Universal (Public Domain)](LICENSE)
-You are free to use, modify, and distribute this Unity integration (and test scripts) without any attribution or restrictions.
+**Unity Integration Code (this project):** Released under [CC0 1.0 Universal (Public Domain)](LICENSE)
+You are free to use, modify, and distribute this Unity integration without any attribution or restrictions.
+
+**TorchSharp Library:** Released under [MIT License](LICENSE-TORCHSHARP.txt) by the .NET Foundation
+The TorchSharp library and its dependencies retain their original licenses.
+
+**Third-Party Components:** TorchSharp incorporates PyTorch, Caffe2, and other third-party software.
+See [THIRD-PARTY-NOTICES-TORCHSHARP](THIRD-PARTY-NOTICES-TORCHSHARP.txt) for complete attribution and license information.
 
 **Third-Party Dependencies:** Each library in the Plugins folder includes its own license file. See the LICENSE.txt or LICENSE.TXT files within each subfolder for specific licensing terms.
 
