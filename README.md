@@ -1,6 +1,6 @@
 # TorchSharp For Unity
 
-This project integrates TorchSharp (PyTorch for .NET) into Unity, enabling machine learning capabilities directly within the Unity engine. It includes TorchSharp version 0.102.6 and all required dependencies as DLLs imported into the 'Assets/TorchSharp/Plugins' folder.
+This project integrates TorchSharp (PyTorch for .NET) into Unity, enabling machine learning capabilities directly within the Unity engine. It includes TorchSharp version 0.105.2 with libtorch-cpu 2.7.1 and all required dependencies as DLLs imported into the `Assets/TorchSharp/Plugins` folder.
 
 > **Note:** The Unity integration code in this project is released to the public domain (CC0). No attribution required. See [License](#license) section below.
 
@@ -8,9 +8,9 @@ This project integrates TorchSharp (PyTorch for .NET) into Unity, enabling machi
 - Complete ML training pipeline with the classic Iris dataset example
 - Interactive step-by-step training demo
 - Runtime neural network training and inference
-- Windows and CPU only (no GPU/CUDA support)
+- Windows x64 and CPU only (no GPU/CUDA support)
 
-This version was tested in Unity 6000.3.4f1.
+Tested with Unity 6000.3.5f1.
 
 For more information on TorchSharp, visit the [TorchSharp GitHub repository](https://github.com/dotnet/TorchSharp).
 For examples and tutorials, visit the [TorchSharp Examples repository](https://github.com/dotnet/TorchSharpExamples).
@@ -51,9 +51,9 @@ If you just want to add TorchSharp to an existing Unity project, download `Torch
 ## What's Included
 
 This project contains:
-- **TorchSharp 0.102.6** - Core deep learning library with CPU-only libtorch binaries
+- **TorchSharp 0.105.2** - Core deep learning library with libtorch-cpu 2.7.1 binaries
 - **Iris Classification Demo** - Complete example of training a neural network on the Iris dataset
-- **All Dependencies** - Microsoft.DotNet.Interactive, System.Reactive, System.Text.Json, and other required libraries
+- **All Dependencies** - Google.Protobuf, SharpZipLib, SkiaSharp, System.Memory, and other required libraries
 - **Example Scripts** - `IrisModel.cs`, `IrisTraining.cs`, and basic tensor operations demo
 
 For package distribution, a `TorchSharpForUnity.unitypackage` can be exported using the included PackageExporter script.
@@ -106,18 +106,17 @@ A simple scene demonstrating basic tensor operations. Enter Play Mode to see ten
 ## Technical Details
 
 **Dependencies:**
-- TorchSharp 0.102.6
-- LibTorch CPU (Windows x64)
-- Microsoft.DotNet.Interactive 1.0.0-beta.24229.4
-- System.Reactive 6.0.1
-- System.Text.Json 8.0.7
+- TorchSharp 0.105.2
+- libtorch-cpu 2.7.1 (Windows x64)
+- Google.Protobuf 3.21.9
+- SharpZipLib 1.4.0
 - SkiaSharp 2.88.6
-- Unity Code Analysis package (provides Roslyn/Microsoft.CodeAnalysis dependencies)
+- System.Memory 4.5.5
 
 **System Requirements:**
 - Windows 64-bit
-- Unity 6000.3.4f1 (or compatible version)
-- CPU only (currently no GPU/CUDA support)
+- Unity 6000.3.5f1 (or later)
+- CPU only (no GPU/CUDA support)
 
 ## Disclaimer
 

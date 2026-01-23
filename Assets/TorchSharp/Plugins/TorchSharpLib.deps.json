@@ -9,9 +9,9 @@
     ".NETStandard,Version=v2.1/": {
       "TorchSharpLib/1.0.0": {
         "dependencies": {
-          "TorchSharp-cpu": "0.102.6",
-          "libtorch-cpu": "2.2.1.1",
-          "libtorch-cpu-win-x64": "2.2.1.1"
+          "TorchSharp-cpu": "0.105.2",
+          "libtorch-cpu": "2.7.1",
+          "libtorch-cpu-win-x64": "2.7.1"
         },
         "runtime": {
           "TorchSharpLib.dll": {}
@@ -29,18 +29,18 @@
           }
         }
       },
-      "libtorch-cpu/2.2.1.1": {
+      "libtorch-cpu/2.7.1": {
         "dependencies": {
-          "libtorch-cpu-linux-x64": "2.2.1.1",
-          "libtorch-cpu-osx-arm64": "2.2.1.1",
-          "libtorch-cpu-osx-x64": "2.2.1.1",
-          "libtorch-cpu-win-x64": "2.2.1.1"
+          "libtorch-cpu-linux-x64": "2.7.1",
+          "libtorch-cpu-osx-arm64": "2.7.1",
+          "libtorch-cpu-osx-x64": "2.7.1",
+          "libtorch-cpu-win-x64": "2.7.1"
         }
       },
-      "libtorch-cpu-linux-x64/2.2.1.1": {},
-      "libtorch-cpu-osx-arm64/2.2.1.1": {},
-      "libtorch-cpu-osx-x64/2.2.1.1": {},
-      "libtorch-cpu-win-x64/2.2.1.1": {},
+      "libtorch-cpu-linux-x64/2.7.1": {},
+      "libtorch-cpu-osx-arm64/2.7.1": {},
+      "libtorch-cpu-osx-x64/2.7.1": {},
+      "libtorch-cpu-win-x64/2.7.1": {},
       "SharpZipLib/1.4.0": {
         "runtime": {
           "lib/netstandard2.1/ICSharpCode.SharpZipLib.dll": {
@@ -100,7 +100,7 @@
           }
         }
       },
-      "TorchSharp/0.102.6": {
+      "TorchSharp/0.105.2": {
         "dependencies": {
           "Google.Protobuf": "3.21.9",
           "SharpZipLib": "1.4.0",
@@ -109,15 +109,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/TorchSharp.dll": {
-            "assemblyVersion": "0.102.6.0",
-            "fileVersion": "0.102.6.0"
+            "assemblyVersion": "0.105.2.0",
+            "fileVersion": "0.105.2.0"
           }
         }
       },
-      "TorchSharp-cpu/0.102.6": {
+      "TorchSharp-cpu/0.105.2": {
         "dependencies": {
-          "TorchSharp": "0.102.6",
-          "libtorch-cpu": "2.2.1.1"
+          "TorchSharp": "0.105.2",
+          "libtorch-cpu": "2.7.1"
         }
       }
     }
@@ -135,40 +135,40 @@
       "path": "google.protobuf/3.21.9",
       "hashPath": "google.protobuf.3.21.9.nupkg.sha512"
     },
-    "libtorch-cpu/2.2.1.1": {
+    "libtorch-cpu/2.7.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-2i/921U+xpKQm9dmvbTBcG0L1pBnDornontVNwd6xojdik7xBXMBFFvFLCEiYyE8/7om3BLQ7w3JIfBTLegLow==",
-      "path": "libtorch-cpu/2.2.1.1",
-      "hashPath": "libtorch-cpu.2.2.1.1.nupkg.sha512"
+      "sha512": "",
+      "path": "libtorch-cpu/2.7.1",
+      "hashPath": "libtorch-cpu.2.7.1.nupkg.sha512"
     },
-    "libtorch-cpu-linux-x64/2.2.1.1": {
+    "libtorch-cpu-linux-x64/2.7.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ARlZi8v8LIaeR7gaj0gIyx34512TUWDOlyaWpehYe9qusOh1z2Q1/MSyPZrA8zndoJNPxvkfyyHfZNp9U/HQTw==",
-      "path": "libtorch-cpu-linux-x64/2.2.1.1",
-      "hashPath": "libtorch-cpu-linux-x64.2.2.1.1.nupkg.sha512"
+      "sha512": "",
+      "path": "libtorch-cpu-linux-x64/2.7.1",
+      "hashPath": "libtorch-cpu-linux-x64.2.7.1.nupkg.sha512"
     },
-    "libtorch-cpu-osx-arm64/2.2.1.1": {
+    "libtorch-cpu-osx-arm64/2.7.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-eMBu0zTQ2/oYEQ3sMBxAugVov7LD38smw1ouqelV0SaUay4QI8vBQ1XHK4/bVFcI6/YorLWvCG9gNZRA4U11Vg==",
-      "path": "libtorch-cpu-osx-arm64/2.2.1.1",
-      "hashPath": "libtorch-cpu-osx-arm64.2.2.1.1.nupkg.sha512"
+      "sha512": "",
+      "path": "libtorch-cpu-osx-arm64/2.7.1",
+      "hashPath": "libtorch-cpu-osx-arm64.2.7.1.nupkg.sha512"
     },
-    "libtorch-cpu-osx-x64/2.2.1.1": {
+    "libtorch-cpu-osx-x64/2.7.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-M7CAusU/Mla2rnC8zQck4uFvB2dLhrco4eibqciA+ZSh9EYRLkUaArh3YkYzJHOp8msm/3ImkdLdt6mjHHzksg==",
-      "path": "libtorch-cpu-osx-x64/2.2.1.1",
-      "hashPath": "libtorch-cpu-osx-x64.2.2.1.1.nupkg.sha512"
+      "sha512": "",
+      "path": "libtorch-cpu-osx-x64/2.7.1",
+      "hashPath": "libtorch-cpu-osx-x64.2.7.1.nupkg.sha512"
     },
-    "libtorch-cpu-win-x64/2.2.1.1": {
+    "libtorch-cpu-win-x64/2.7.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-g7cPRFuh7bd53Blc2YFzmC2IuYDhrXFYd3ziF9NIhTEA+I0AE8xbYNDwki/VIJQvviK8oEdtxWqlLm4OOdn3vw==",
-      "path": "libtorch-cpu-win-x64/2.2.1.1",
-      "hashPath": "libtorch-cpu-win-x64.2.2.1.1.nupkg.sha512"
+      "sha512": "",
+      "path": "libtorch-cpu-win-x64/2.7.1",
+      "hashPath": "libtorch-cpu-win-x64.2.7.1.nupkg.sha512"
     },
     "SharpZipLib/1.4.0": {
       "type": "package",
@@ -226,19 +226,19 @@
       "path": "system.runtime.compilerservices.unsafe/4.5.3",
       "hashPath": "system.runtime.compilerservices.unsafe.4.5.3.nupkg.sha512"
     },
-    "TorchSharp/0.102.6": {
+    "TorchSharp/0.105.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-blYHAp+V0NuVaz01Lt4cLFt9jW463sREs8aEvDwKLLtjdnmqi/dixv5qEx/VE661azgQTHQjHwdxu3Kv+xGuug==",
-      "path": "torchsharp/0.102.6",
-      "hashPath": "torchsharp.0.102.6.nupkg.sha512"
+      "sha512": "",
+      "path": "torchsharp/0.105.2",
+      "hashPath": "torchsharp.0.105.2.nupkg.sha512"
     },
-    "TorchSharp-cpu/0.102.6": {
+    "TorchSharp-cpu/0.105.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-QVSUHirQi+piJyZP9rrsJi1kf4/zh4/a41E3pgAtv+iqV1BArd0bN+L3+7Ds144rQZaiwsOcq2YlYaKnom73Zg==",
-      "path": "torchsharp-cpu/0.102.6",
-      "hashPath": "torchsharp-cpu.0.102.6.nupkg.sha512"
+      "sha512": "",
+      "path": "torchsharp-cpu/0.105.2",
+      "hashPath": "torchsharp-cpu.0.105.2.nupkg.sha512"
     }
   }
 }

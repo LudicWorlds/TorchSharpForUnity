@@ -2,7 +2,7 @@
 
 This 'TorchSharpForUnity.unitypackage' contains a collection of DLLs, obtained via nuget.org, that install TorchSharp within your Unity Project. The required DLLs are imported into the 'Assets/Plugins' folder of your project. This includes TorchSharp version 0.102.6 and the DLLs on which it depends.
 
-This TorchSharp package is Windows and CPU only (no GPU/Cuda support). It has been tested in Unity 6000.3.4f1.
+This TorchSharp package is Windows and CPU only (no GPU/Cuda support). It has been tested in Unity 6000.3.5f1.
 
 For more information on TorchSharp, visit the [TorchSharp GitHub repository](https://github.com/dotnet/TorchSharp).  
 For examples and tutorials, visit the [TorchSharp Examples repository](https://github.com/dotnet/TorchSharpExamples).
@@ -18,33 +18,16 @@ You are free to use, modify, and distribute this Unity integration (and test scr
 
 ## Step-by-Step Installation Guide
 
+### 1. Download the 'TorchSharpForUnity.unitypackage'
+
 Download `TorchSharpForUnity.unitypackage` from the [latest Release](https://github.com/LudicWorlds/TorchSharpForUnity/releases/latest).
 
-### 1. Install the 'Code Analysis' Package
-
-1. In Unity, open the Package Manager:
-   - Go to **Window > Package Manager** in the Unity Editor.
-
-2. Enable the visibility of preview packages:
-   - Click on the gear icon in the top right corner of the Package Manager window.
-   - Select **Advanced Project Settings**.
-   - In the **Project Settings** window, under the **Package Manager** section, check the box for **Enable Preview Packages**.
-
-3. Add the 'Code Analysis' package:
-   - In the Package Manager, click on the **+** button in the top left corner.
-   - Select **Add package from git URL...**.
-   - In the 'Name' text field, enter `com.unity.code-analysis` and click **Add**.
-   - The package will be installed and ready for use in your project.
 
 ### 2. Import the 'TorchSharpForUnity.unitypackage'
 
 1. Go to **Assets > Import Package > Custom Package...**.
 2. Select the `TorchSharpForUnity.unitypackage` file.
 3. In the Import Unity Package window, ensure all items are checked and click **Import**.
-
-### Important Notes:
-- Enabling preview packages allows you to install experimental and preview versions of packages that are not fully released. Use these packages with caution as they may have limited support and could introduce instability.
-- Ensure that you follow the order of these steps to avoid any dependency issues.
 
 
 ## Test TorchSharp in your Project
