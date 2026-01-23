@@ -10,7 +10,7 @@ For examples and tutorials, visit the [TorchSharp Examples repository](https://g
 
 ## License
 
-**Unity Integration Code (this project):** Released under [CC0 1.0 Universal (Public Domain)](LICENSE)
+**Unity Integration Code (this project):** Released under [CC0 1.0 Universal (Public Domain)](LICENSE.txt)
 You are free to use, modify, and distribute this Unity integration without any attribution or restrictions.
 
 **TorchSharp Library:** Released under [MIT License](LICENSE-TORCHSHARP.txt) by the .NET Foundation
