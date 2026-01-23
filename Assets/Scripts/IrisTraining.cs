@@ -39,14 +39,13 @@ public class IrisTraining : MonoBehaviour
     void Awake()
     {
         _stage = 0;
-        Debug.Log("TorchSharp - Iris Dataset Demo - Use [SPACEBAR] to advance demo.\n");
-        PrintTorchSharpCaps();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Debug.Log("TorchSharp - Iris Dataset Demo - Use [SPACEBAR] to advance demo.\n");
+        PrintTorchSharpCaps();
     }
 
     // Update is called once per frame
@@ -54,7 +53,12 @@ public class IrisTraining : MonoBehaviour
     {
         if (Keyboard.current.spaceKey.wasPressedThisFrame)
         {
-            ExecuteNextStage();
+            ExecuteNextStage(); //of the Iris Training demo.
+        }
+
+        if (Keyboard.current.escapeKey.wasPressedThisFrame)
+        {
+            Application.Quit();
         }
     }
 
@@ -382,5 +386,17 @@ public class IrisTraining : MonoBehaviour
         }
 
         return str;
+    }
+
+    void OnApplicationQuit()
+    {
+        // Dispose TorchSharp native resources
+        _x_train?.Dispose();
+        _y_train?.Dispose();
+        _x_test?.Dispose();
+        _y_test?.Dispose();
+        _irisModel?.Dispose();
+        _criterion?.Dispose();
+        _optimizer?.Dispose();
     }
 }

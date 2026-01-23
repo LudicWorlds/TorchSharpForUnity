@@ -25,13 +25,19 @@ public static class TorchSharpInitializer
 
         try
         {
-            // Get the path to the native libraries
-            string pluginsPath = Path.Combine(Application.dataPath, "TorchSharp", "Plugins");
-            string nativeLibPath = Path.Combine(pluginsPath, "libtorch-cpu-win-x64", "win-x64");
+            // Get the path to the native libraries (platform-specific subfolder)
+            // In Editor: Assets/TorchSharp/Plugins/x86_64
+            // In Build: <AppName>_Data/Plugins/x86_64
+            string pluginsPath;
+#if UNITY_EDITOR
+            pluginsPath = Path.Combine(Application.dataPath, "TorchSharp", "Plugins", "x86_64");
+#else
+            pluginsPath = Path.Combine(Application.dataPath, "Plugins", "x86_64");
+#endif
 
-            Debug.Log($"[TorchSharpInitializer] Loading native libraries from: {nativeLibPath}");
+            Debug.Log($"[TorchSharpInitializer] Loading native libraries from: {pluginsPath}");
 
-            // Load libraries in dependency order
+            // Load libraries in dependency order (libtorch-cpu 2.7.1)
             string[] librariesToLoad = new string[]
             {
                 "libiomp5md.dll",
@@ -42,14 +48,12 @@ public static class TorchSharpInitializer
                 "uv.dll",
                 "torch_cpu.dll",
                 "torch.dll",
-                "torch_global_deps.dll",
-                "fbjni.dll",
-                "pytorch_jni.dll"
+                "torch_global_deps.dll"
             };
 
             foreach (string lib in librariesToLoad)
             {
-                string libPath = Path.Combine(nativeLibPath, lib);
+                string libPath = Path.Combine(pluginsPath, lib);
                 if (File.Exists(libPath))
                 {
                     IntPtr handle = LoadLibrary(libPath);

@@ -10,13 +10,6 @@
       },
       "url": "https://packages.unity.com"
     },
-    "com.unity.code-analysis": {
-      "version": "0.1.2-preview",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://packages.unity.com"
-    },
     "com.unity.collections": {
       "version": "2.6.2",
       "depth": 2,
@@ -37,7 +30,7 @@
       "dependencies": {}
     },
     "com.unity.ide.rider": {
-      "version": "3.0.38",
+      "version": "3.0.39",
       "depth": 0,
       "source": "registry",
       "dependencies": {
