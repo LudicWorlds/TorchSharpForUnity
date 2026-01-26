@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 using UnityEngine;
 
 /// <summary>
-/// Initializes TorchSharp native libraries before any TorchSharp code runs.
+/// Initializes TorchSharp and SkiaSharp native libraries before any managed code runs.
 /// This script must have a very early execution order.
 /// </summary>
 public static class TorchSharpInitializer
@@ -37,9 +37,10 @@ public static class TorchSharpInitializer
 
             Debug.Log($"[TorchSharpInitializer] Loading native libraries from: {pluginsPath}");
 
-            // Load libraries in dependency order (libtorch-cpu 2.7.1)
+            // Load libraries in dependency order (libtorch-cpu 2.7.1 + SkiaSharp 2.88.6)
             string[] librariesToLoad = new string[]
             {
+                "libSkiaSharp.dll",     // SkiaSharp native library
                 "libiomp5md.dll",
                 "libiompstubs5md.dll",
                 "asmjit.dll",

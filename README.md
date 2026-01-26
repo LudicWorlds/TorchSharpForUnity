@@ -52,8 +52,9 @@ If you just want to add TorchSharp to an existing Unity project, download `Torch
 
 This project contains:
 - **TorchSharp 0.105.2** - Core deep learning library with libtorch-cpu 2.7.1 binaries
+- **SkiaSharp 2.88.6** - 2D graphics library with native binaries (Windows x64)
 - **Iris Classification Demo** - Complete example of training a neural network on the Iris dataset
-- **All Dependencies** - Google.Protobuf, SharpZipLib, SkiaSharp, System.Memory, and other required libraries
+- **All Dependencies** - SkiaSharp, SharpZipLib, and other required libraries
 - **Example Scripts** - `IrisModel.cs`, `IrisTraining.cs`, and basic tensor operations demo
 
 For package distribution, a `TorchSharpForUnity.unitypackage` can be exported using the included PackageExporter script.
@@ -63,7 +64,7 @@ For package distribution, a `TorchSharpForUnity.unitypackage` can be exported us
 
 ### Running the Project
 
-1. Open the project in Unity 6000.3.4f1 (or compatible version)
+1. Open the project in Unity 6000.3.5f1 (or later)
 2. The Code Analysis package should already be installed (check `Packages/manifest.json`)
 3. Open the scene: **Assets/Scenes/IrisTrainingScene.unity**
 4. Enter Play Mode
@@ -108,9 +109,9 @@ A simple scene demonstrating basic tensor operations. Enter Play Mode to see ten
 **Dependencies:**
 - TorchSharp 0.105.2
 - libtorch-cpu 2.7.1 (Windows x64)
+- SkiaSharp 2.88.6 (Windows x64)
 - Google.Protobuf 3.21.9
 - SharpZipLib 1.4.0
-- SkiaSharp 2.88.6
 - System.Memory 4.5.5
 
 **System Requirements:**
