@@ -107,34 +107,6 @@ This interactive demo trains a neural network to classify Iris flowers using the
 A simple scene demonstrating basic tensor operations. Enter Play Mode to see tensor creation and manipulation logged to the Console.
 
 
-## SkiaPlot Usage
-
-SkiaPlot is a lightweight plotting library for visualizing training loss curves. Basic usage:
-
-```csharp
-using (var plot = new SkiaPlot(750, 500))
-{
-    plot.Plot(lossValues, SKColors.Blue, "Training Loss")
-        .SetTitle("Training Progress")
-        .SetXLabel("Epoch")
-        .SetYLabel("Loss")
-        .ShowGrid(true)
-        .ShowLegend(true);
-
-    Texture2D texture = plot.ToTexture2D();
-    rawImage.texture = texture;
-}
-```
-
-**Available Methods:**
-- `Plot(yValues, color, label)` - Plot Y values with automatic X indices (0, 1, 2, ...)
-- `SetTitle(string)` - Set the plot title
-- `SetXLabel(string)` / `SetYLabel(string)` - Set axis labels
-- `ShowGrid(bool)` - Toggle grid lines
-- `ShowLegend(bool)` - Toggle legend display
-- `ToTexture2D()` - Render to Unity Texture2D
-
-
 ## Technical Details
 
 **Dependencies:**
