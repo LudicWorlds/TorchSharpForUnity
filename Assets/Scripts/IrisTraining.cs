@@ -2,15 +2,22 @@ using System.Collections.Generic;
 using System;
 using TorchSharp;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using System.Linq;
 using static TorchSharp.torch.optim;
 using TorchSharp.Modules;
+using SkiaSharp;
+using LudicWorlds;
 
 public class IrisTraining : MonoBehaviour
 {
     [SerializeField]
     private TextAsset _iris_csv;
+
+    [SerializeField]
+    [Tooltip("Optional: RawImage to display the training loss plot")]
+    private RawImage _lossPlotImage;
 
     private const int RANDOM_SEED = 42;
 
@@ -35,17 +42,33 @@ public class IrisTraining : MonoBehaviour
 
     private int _stage = 0;
 
+    // Plot texture
+    private Texture2D _lossPlotTexture;
+    private Canvas _skiaPanelCanvas;
+
 
     void Awake()
     {
         _stage = 0;
+
+        // Get the Canvas from the RawImage's parent and hide it initially
+        if (_lossPlotImage != null)
+        {
+            _skiaPanelCanvas = _lossPlotImage.GetComponentInParent<Canvas>();
+            if (_skiaPanelCanvas != null)
+            {
+                _skiaPanelCanvas.enabled = false;
+            }
+        }
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("TorchSharp - Iris Dataset Demo - Use [SPACEBAR] to advance demo.\n");
+        DebugPanel.SetStatus("PrintTorchSharpCaps()");
+        Debug.Log("TorchSharp - Iris Dataset Demo\n");
         PrintTorchSharpCaps();
+        Debug.Log("Press [SPACEBAR] to advance demo.\n");
     }
 
     // Update is called once per frame
@@ -79,9 +102,14 @@ public class IrisTraining : MonoBehaviour
                 Train();
                 break;
             case 4:
-                Test();
+                if (_skiaPanelCanvas != null) _skiaPanelCanvas.enabled = true;
+                PlotTrainingLoss();
                 break;
             case 5:
+                if (_skiaPanelCanvas != null) _skiaPanelCanvas.enabled = false;
+                Test();
+                break;
+            case 6:
                 PredictUsingNewData();
                 break;
         }
@@ -98,17 +126,19 @@ public class IrisTraining : MonoBehaviour
 
     private void InitData()
     {
+        DebugPanel.SetStatus("InitData()");
+
         if (_iris_csv != null)
         {
             //Debug.Log("InitData() - CSV Data Loaded Successfully");
-
             ParseCSV(_iris_csv.text);
 
             //Iris Data Loaded Successfully!
             string irisDataPrintOut = "Iris Dataset:\n";
             irisDataPrintOut += PrintOutData();
             irisDataPrintOut += $"Iris Dataset Count: {_irisData.Count}\n";
-            Debug.Log(irisDataPrintOut);
+            Debug.Log(irisDataPrintOut + "\n");
+            Debug.Log("Press [SPACEBAR] to advance demo.\n");
         }
         else
         {
@@ -118,6 +148,8 @@ public class IrisTraining : MonoBehaviour
 
     private void PrepareTrainAndTestDatasets()
     {
+        DebugPanel.SetStatus("PrepareTrainAndTestDatasets()");
+
         (_trainData, _testData) = TrainTestSplit(_irisData, 0.8f);
 
         // Separate the features and labels
@@ -145,10 +177,13 @@ public class IrisTraining : MonoBehaviour
         trainTestInfo +=        $"_y_test Rows: {_y_test?.shape[0]}\n\n";
 
         Debug.Log(trainTestInfo);
+        Debug.Log("Press [SPACEBAR] to advance demo.\n");
     }
 
     private void InitIrisModel()
     {
+        DebugPanel.SetStatus("InitIrisModel()");
+
         torch.random.manual_seed(RANDOM_SEED);
         _irisModel = new IrisModel();
 
@@ -168,11 +203,12 @@ public class IrisTraining : MonoBehaviour
 
         Debug.Log(_irisModel.PrintParameters());
         //PrintParameters();
+        Debug.Log("Press [SPACEBAR] to advance demo.\n");
     }
 
     private void Train()
     { //Train the Iris Model
-
+        DebugPanel.SetStatus("Train()");
         Debug.Log("Train()");
 
         if (_irisModel is null || _x_train is null || _criterion is null
@@ -197,7 +233,7 @@ public class IrisTraining : MonoBehaviour
 
             if (i % 10 == 0)
             {
-                Debug.Log($"Epoch: {i} and loss: {lossVal}\n");
+                Debug.Log($"Epoch: {i} and loss: {lossVal}");
             }
 
             // Do some back propagation: take the error rate of forward propagation and feed it back
@@ -208,11 +244,51 @@ public class IrisTraining : MonoBehaviour
         }
 
         GC.Collect();
-        Debug.Log($"Epoch: {i} and loss: {lossVal}\n\n");
+        Debug.Log($"Epoch: {i} and loss: {lossVal}\n");
+        Debug.Log("Press [SPACEBAR] to show loss curve.\n");
+    }
+
+    private void PlotTrainingLoss()
+    {
+        DebugPanel.SetStatus("PlotTrainingLoss()");
+
+        if (_losses.Count == 0) return;
+
+        //Debug.Log("Plotting training loss...");
+
+        using (var plot = new SkiaPlot(750, 500))
+        {
+            plot.Plot(_losses, SKColors.Blue, "Training Loss")
+                .SetTitle("Iris Model Training")
+                .SetXLabel("Epoch")
+                .SetYLabel("Loss")
+                .ShowGrid(true)
+                .ShowLegend(true);
+
+            // Clean up previous texture
+            if (_lossPlotTexture != null)
+            {
+                Destroy(_lossPlotTexture);
+            }
+
+            _lossPlotTexture = plot.ToTexture2D();
+        }
+
+        // Display on RawImage if assigned
+        if (_lossPlotImage != null)
+        {
+            _lossPlotImage.texture = _lossPlotTexture;
+            Debug.Log("Loss plot displayed on RawImage.");
+        }
+        else
+        {
+            Debug.Log("Loss plot generated. Assign a RawImage to _lossPlotImage to display it.");
+        }
     }
 
     private void Test()
     {
+        DebugPanel.SetStatus("Test()");
         Debug.Log("Test()");
 
         if (_irisModel is null || _x_test is null || _criterion is null
@@ -257,10 +333,14 @@ public class IrisTraining : MonoBehaviour
             Debug.Log(testInfo);
             GC.Collect();
         }
+
+        Debug.Log("Press [SPACEBAR] to advance demo.\n");
     }
 
     private void PredictUsingNewData()
     {
+        DebugPanel.SetStatus("PredictUsingNewData()");
+
         if (_irisModel is null) return;
 
         _irisModel.eval();
@@ -283,6 +363,8 @@ public class IrisTraining : MonoBehaviour
 
             Debug.Log(predictionInfo);
         }
+
+        Debug.Log("End of Demo!\n");
     }
 
 
@@ -398,5 +480,12 @@ public class IrisTraining : MonoBehaviour
         _irisModel?.Dispose();
         _criterion?.Dispose();
         _optimizer?.Dispose();
+
+        // Clean up plot texture
+        if (_lossPlotTexture != null)
+        {
+            Destroy(_lossPlotTexture);
+            _lossPlotTexture = null;
+        }
     }
 }

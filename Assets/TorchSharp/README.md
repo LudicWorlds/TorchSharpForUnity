@@ -1,10 +1,12 @@
-# TorchSharpForUnity.unitypackage - v0.4.0
+# TorchSharpForUnity.unitypackage - v0.5.0
 
-This 'TorchSharpForUnity.unitypackage' contains a collection of DLLs, obtained via nuget.org, that install TorchSharp within your Unity Project. The required DLLs are imported into the 'Assets/Plugins' folder of your project. This includes TorchSharp version 0.105.2 and the DLLs on which it depends.
+This 'TorchSharpForUnity.unitypackage' contains a collection of DLLs, obtained via nuget.org, that install TorchSharp within your Unity Project. The required DLLs are imported into the 'Assets/TorchSharp/Plugins' folder of your project. This includes TorchSharp version 0.105.2, SkiaSharp 2.88.6, and all required dependencies.
 
 This TorchSharp package is Windows and CPU only (no GPU/Cuda support). It has been tested in Unity 6000.3.5f1.
 
-For more information on TorchSharp, visit the [TorchSharp GitHub repository](https://github.com/dotnet/TorchSharp).  
+The package also includes SkiaPlot.cs, a lightweight SkiaSharp-based plotting library for line graph visualization (e.g., training loss curves).
+
+For more information on TorchSharp, visit the [TorchSharp GitHub repository](https://github.com/dotnet/TorchSharp).
 For examples and tutorials, visit the [TorchSharp Examples repository](https://github.com/dotnet/TorchSharpExamples).
 
 
@@ -26,7 +28,7 @@ See [THIRD-PARTY-NOTICES-TORCHSHARP](THIRD-PARTY-NOTICES-TORCHSHARP.txt) for com
 
 1. After importing the 'TorchSharpForUnity.unitypackage', restart the Unity Editor to ensure that the TorchSharp DLLs are loaded correctly.
 2. In the Unity Editor, open the scene: **TorchSharp/Scenes/TorchSharpScene**.
-3. Notice in the Hierarchy View, there is a 'Script' GameObject with the 'TorchSharpTest' script attached.
+3. Notice in the Hierarchy View, there is a 'TorchSharpTest' GameObject with the 'TorchSharpTest' script attached.
 4. Click the **Play** button in the Editor to start Play Mode.
 
 In the Console Panel, you should see Debug Logs relating to TorchSharp Tensor operations.

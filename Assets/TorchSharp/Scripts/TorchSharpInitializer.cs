@@ -11,6 +11,20 @@ public static class TorchSharpInitializer
 {
     private static bool _initialized = false;
 
+    /// <summary>
+    /// Returns the path to native plugins (handles Editor vs Build differences).
+    /// Editor: Assets/TorchSharp/Plugins/x86_64
+    /// Build:  [AppName]_Data/Plugins/x86_64
+    /// </summary>
+    public static string GetNativePluginsPath()
+    {
+#if UNITY_EDITOR
+        return Path.Combine(Application.dataPath, "TorchSharp", "Plugins", "x86_64");
+#else
+        return Path.Combine(Application.dataPath, "Plugins", "x86_64");
+#endif
+    }
+
     // Windows API for loading DLLs
     [DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
     private static extern IntPtr LoadLibrary(string lpFileName);
@@ -26,14 +40,14 @@ public static class TorchSharpInitializer
         try
         {
             // Get the path to the native libraries (platform-specific subfolder)
-            // In Editor: Assets/TorchSharp/Plugins/x86_64
-            // In Build: <AppName>_Data/Plugins/x86_64
-            string pluginsPath;
-#if UNITY_EDITOR
-            pluginsPath = Path.Combine(Application.dataPath, "TorchSharp", "Plugins", "x86_64");
-#else
-            pluginsPath = Path.Combine(Application.dataPath, "Plugins", "x86_64");
-#endif
+            string pluginsPath = GetNativePluginsPath();
+
+            if (!Directory.Exists(pluginsPath))
+            {
+                Debug.LogError($"[TorchSharpInitializer] Plugins directory not found: {pluginsPath}");
+                Debug.LogError("[TorchSharpInitializer] Ensure native DLLs are in Assets/TorchSharp/Plugins/x86_64/ and have correct .meta settings.");
+                return;
+            }
 
             Debug.Log($"[TorchSharpInitializer] Loading native libraries from: {pluginsPath}");
 

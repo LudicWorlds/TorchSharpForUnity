@@ -7,6 +7,7 @@ This project integrates TorchSharp (PyTorch for .NET) into Unity, enabling machi
 **Key Features:**
 - Complete ML training pipeline with the classic Iris dataset example
 - Interactive step-by-step training demo
+- Training loss curve visualization with SkiaPlot
 - Runtime neural network training and inference
 - Windows x64 and CPU only (no GPU/CUDA support)
 
@@ -53,9 +54,10 @@ If you just want to add TorchSharp to an existing Unity project, download `Torch
 This project contains:
 - **TorchSharp 0.105.2** - Core deep learning library with libtorch-cpu 2.7.1 binaries
 - **SkiaSharp 2.88.6** - 2D graphics library with native binaries (Windows x64)
+- **SkiaPlot** - Lightweight plotting library for training loss curve visualization
 - **Iris Classification Demo** - Complete example of training a neural network on the Iris dataset
-- **All Dependencies** - SkiaSharp, SharpZipLib, and other required libraries
-- **Example Scripts** - `IrisModel.cs`, `IrisTraining.cs`, and basic tensor operations demo
+- **All Dependencies** - Google.Protobuf, SharpZipLib, System.Memory, and other required libraries
+- **Example Scripts** - `IrisModel.cs` (neural network) and `IrisTraining.cs` (training pipeline) demonstrate the Iris Classification example
 
 For package distribution, a `TorchSharpForUnity.unitypackage` can be exported using the included PackageExporter script.
 
@@ -86,8 +88,9 @@ This interactive demo trains a neural network to classify Iris flowers using the
    - Stage 2: Split into train/test sets (120/30 split)
    - Stage 3: Initialize 3-layer neural network (4→9→9→3)
    - Stage 4: Train for 300 epochs with Adam optimizer
-   - Stage 5: Evaluate accuracy on test set
-   - Stage 6: Make predictions on new data
+   - Stage 5: Display training loss curve (using SkiaPlot)
+   - Stage 6: Evaluate accuracy on test set
+   - Stage 7: Make predictions on new data
 3. Watch the Console for detailed output at each stage
 
 **Neural Network Architecture:**
@@ -104,12 +107,40 @@ This interactive demo trains a neural network to classify Iris flowers using the
 A simple scene demonstrating basic tensor operations. Enter Play Mode to see tensor creation and manipulation logged to the Console.
 
 
+## SkiaPlot Usage
+
+SkiaPlot is a lightweight plotting library for visualizing training loss curves. Basic usage:
+
+```csharp
+using (var plot = new SkiaPlot(750, 500))
+{
+    plot.Plot(lossValues, SKColors.Blue, "Training Loss")
+        .SetTitle("Training Progress")
+        .SetXLabel("Epoch")
+        .SetYLabel("Loss")
+        .ShowGrid(true)
+        .ShowLegend(true);
+
+    Texture2D texture = plot.ToTexture2D();
+    rawImage.texture = texture;
+}
+```
+
+**Available Methods:**
+- `Plot(yValues, color, label)` - Plot Y values with automatic X indices (0, 1, 2, ...)
+- `SetTitle(string)` - Set the plot title
+- `SetXLabel(string)` / `SetYLabel(string)` - Set axis labels
+- `ShowGrid(bool)` - Toggle grid lines
+- `ShowLegend(bool)` - Toggle legend display
+- `ToTexture2D()` - Render to Unity Texture2D
+
+
 ## Technical Details
 
 **Dependencies:**
 - TorchSharp 0.105.2
 - libtorch-cpu 2.7.1 (Windows x64)
-- SkiaSharp 2.88.6 (Windows x64)
+- SkiaSharp 2.88.6 (with native binaries for Windows x64)
 - Google.Protobuf 3.21.9
 - SharpZipLib 1.4.0
 - System.Memory 4.5.5
